@@ -179,7 +179,7 @@ with col2:
     st.markdown(
         """
         <div class="header-text" style="margin-left: 20px; display: flex; flex-direction: column; justify-content: center; height: 100%;">
-            <h1 class="big-font">Apeiron Tools Hub</h1>
+            
             
         </div>
         """,
@@ -208,4 +208,5 @@ for i, app in enumerate(apps):
             """,
             unsafe_allow_html=True
         )
+
 
