@@ -159,7 +159,7 @@ apps = [
     "name": "Trade Analysis",
     "url": "https://protradesys.streamlit.app/",
     "icon": "📊",
-    "description": "Trade records and analysis"
+    "description": "Deep dive into historical trade records and visualize the entry and exits of each trade"
 }
 ]
 
@@ -214,6 +214,7 @@ for i, app in enumerate(apps):
             """,
             unsafe_allow_html=True
         )
+
 
 
 
