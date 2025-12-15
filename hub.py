@@ -178,7 +178,7 @@ with st.sidebar:
 
 # 1. Header with Logo
 # Using columns to place the logo and text side-by-side nicely
-col1, col2, col3 = st.columns([1, 5])
+col1, col2 = st.columns([1, 5])
 with col1:
     st.image("image_0.png", width=180) # Adjust width as needed
 with col2:
@@ -214,6 +214,7 @@ for i, app in enumerate(apps):
             """,
             unsafe_allow_html=True
         )
+
 
 
 
