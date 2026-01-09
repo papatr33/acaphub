@@ -160,6 +160,12 @@ apps = [
     "url": "https://protradesys.streamlit.app/",
     "icon": "📊",
     "description": "Deep dive into historical trade records and visualize the entry and exits of each trade"
+}，
+    {
+    "name": "Add Watermark",
+    "url": "https://addwatermark.streamlit.app/",
+    "icon": "📜",
+    "description": "Add watermark to PDF files"
 }
 ]
 
@@ -214,6 +220,7 @@ for i, app in enumerate(apps):
             """,
             unsafe_allow_html=True
         )
+
 
 
 
