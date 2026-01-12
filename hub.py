@@ -67,11 +67,13 @@ st.markdown(
         background-color: #ffffff;
         box-shadow: 0 10px 30px rgba(0,0,0,0.08); /* Softer, deeper shadow */
         transition: all 0.3s ease;
-        height: 100%;
+        min-height: 280px; /* Minimum height for consistency */
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         border: none; /* Clean look */
+        margin-bottom: 20px; /* Spacing between rows */
+        overflow: visible; /* Ensure content is not clipped */
     }
     
     .app-card:hover {
@@ -166,6 +168,12 @@ apps = [
     "url": "https://addwatermark.streamlit.app/",
     "icon": "📜",
     "description": "Add watermark to PDF files"
+},
+    {
+    "name": "Trade Cost",
+    "url": "https://tradecost.streamlit.app/",
+    "icon": "💰",
+    "description": "Analyze and calculate trading costs"
 }
 ]
 
@@ -200,26 +208,33 @@ with col2:
 
 st.markdown("<div style='margin-bottom: 60px;'></div>", unsafe_allow_html=True) # Spacer
 
-# 2. Application Cards
-cols = st.columns(len(apps))
+# 2. Application Cards - Display 3 per row
+CARDS_PER_ROW = 3
 
-for i, app in enumerate(apps):
-    with cols[i]:
-        st.markdown(
-            f"""
-            <div class="app-card">
-                <div>
-                    <div class="card-icon">{app['icon']}</div>
-                    <h2 class="card-title">{app['name']}</h2>
-                    <p class="card-desc">{app['description']}</p>
-                </div>
-                <a href="{app['url']}" target="_blank" style="text-decoration: none;">
-                    <div class="launch-btn">Launch Application</div>
-                </a>
-            </div>
-            """,
-            unsafe_allow_html=True
-        )
+for row_start in range(0, len(apps), CARDS_PER_ROW):
+    cols = st.columns(CARDS_PER_ROW)
+    for i, col in enumerate(cols):
+        app_index = row_start + i
+        if app_index < len(apps):
+            app = apps[app_index]
+            with col:
+                st.markdown(
+                    f"""
+                    <div class="app-card">
+                        <div>
+                            <div class="card-icon">{app['icon']}</div>
+                            <h2 class="card-title">{app['name']}</h2>
+                            <p class="card-desc">{app['description']}</p>
+                        </div>
+                        <a href="{app['url']}" target="_blank" style="text-decoration: none;">
+                            <div class="launch-btn">Launch Application</div>
+                        </a>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+    # Add spacer between rows
+    st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
 
 
 
