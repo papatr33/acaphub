@@ -180,6 +180,12 @@ apps = [
     "url": "https://wechatauto.streamlit.app/",
     "icon": "📗",
     "description": "Format Wechat export files"
+},
+    {
+    "name": "IR CRM",
+    "url": "https://ircrm.vercel.app/dashboard",
+    "icon": "👥",
+    "description": "IR CRM database"
 }
 ]
 
@@ -241,6 +247,7 @@ for row_start in range(0, len(apps), CARDS_PER_ROW):
                 )
     # Add spacer between rows
     st.markdown("<div style='margin-bottom: 30px;'></div>", unsafe_allow_html=True)
+
 
 
 
